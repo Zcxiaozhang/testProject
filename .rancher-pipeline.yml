@@ -1,7 +1,1 @@
-stages:
-- name: compile
-  steps:
-  - runScriptConfig:
-      image: 172.16.1.243/headmaster/maven:v1
-      shellScript: mvn clean package
 timeout: 60
