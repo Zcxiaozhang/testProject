@@ -3,5 +3,5 @@ stages:
   steps:
   - runScriptConfig:
       image: 172.16.1.243/headmaster/maven:v1
-      shellScript: mkdir -p /data/deloittepublicbenefit
+      shellScript: mvn clean package
 timeout: 60
