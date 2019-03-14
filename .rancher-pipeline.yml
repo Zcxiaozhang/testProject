@@ -1,0 +1,7 @@
+stages:
+- name: compile
+  steps:
+  - runScriptConfig:
+      image: 172.16.1.243/headmaster/maven:v1
+      shellScript: mkdir -p /data/deloittepublicbenefit
+timeout: 60
