@@ -3,7 +3,5 @@ stages:
   steps:
   - runScriptConfig:
       image: 172.16.1.243/headmaster/maven:v1
-      shellScript: |-
-        cd testProject/HelloWorld/
-        mvn clean package
+      shellScript: mvn clean package
 timeout: 60
