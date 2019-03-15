@@ -4,7 +4,10 @@ pipeline {
     stage('compile') {
       steps {
         sh '''cd HelloWorld
-mvn clean package'''
+mvn clean package
+cd target
+mv *.war HelloWorld.war
+'''
       }
     }
   }
