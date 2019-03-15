@@ -5,6 +5,7 @@ pipeline {
       steps {
         sh '''mkdir -p /data/blueocean/HelloWorld
 cp Dockerfile /data/blueocean/HelloWorld
+cp docker-compose.yml /data/blueocean/HelloWorld
 cd HelloWorld
 mvn clean package
 cd target
@@ -21,6 +22,13 @@ docker build -t helloworld .
 docker tag $(docker images | awk \'{print $3}\' | sed -n 2,2p) 172.16.1.243/headmaster/helloworld:v1
 docker push 172.16.1.243/headmaster/helloworld:v1
 '''
+      }
+    }
+    stage('deploy') {
+      steps {
+        sh '''sudo -s
+cd /data/blueocean/HelloWorld/
+docker-compose up -d'''
       }
     }
   }
