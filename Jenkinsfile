@@ -4,8 +4,8 @@ pipeline {
     stage('compile') {
       steps {
         sh '''mkdir -p /data/blueocean/HelloWorld
-cd HelloWorld
 cp Dockerfile /data/blueocean/HelloWorld
+cd HelloWorld
 mvn clean package
 cd target
 mv *.war HelloWorld.war
