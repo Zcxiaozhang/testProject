@@ -28,7 +28,8 @@ docker push 172.16.1.243/headmaster/helloworld:v1
       steps {
         sh '''sudo -s
 cd /data/blueocean/HelloWorld/
-docker-compose up -d'''
+docker run -dt -p 8099:8080 172.16.1.243/headmaster/helloworld:v1
+'''
       }
     }
   }
