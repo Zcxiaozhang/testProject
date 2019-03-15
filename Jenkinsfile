@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('compile') {
       steps {
-        sh '''cd testProject-master/HelloWorld
+        sh '''cd HelloWorld
 mvn clean package'''
       }
     }
