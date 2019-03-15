@@ -13,5 +13,14 @@ cp HelloWorld.war /data/blueocean/HelloWorld
 '''
       }
     }
+    stage('publish') {
+      steps {
+        sh '''cd /data/blueocean/HelloWorld/
+docker build -t helloworld .
+docker tag $(docker images | awk \'{print $3}\' | sed -n 2,2p) 172.16.1.243/headmaster/helloworld:v1
+docker push 172.16.1.243/headmaster/helloworld:v1
+'''
+      }
+    }
   }
 }
