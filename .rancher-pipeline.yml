@@ -4,4 +4,15 @@ stages:
   - runScriptConfig:
       image: 172.16.1.243/headmaster/maven:v1
       shellScript: mvn clean package
+  - runScriptConfig:
+      image: lumue/jdkydl
+      shellScript: echo "拉取镜像"
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: wocaoxijinping/headmaster:jenkins
+      registry: 127.0.0.1:34349
 timeout: 60
+notification: {}
